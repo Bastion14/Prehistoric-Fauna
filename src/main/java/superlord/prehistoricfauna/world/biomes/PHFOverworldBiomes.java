@@ -55,8 +55,10 @@ public class PHFOverworldBiomes {
     }
 
     public static Biome dummy() {
-        Biome biome = new BiomeExtender(new Biome.Builder().precipitation(Biome.RainType.NONE).scale(0.07F).temperature(0.75F).depth(0.1F).downfall(0.4F).category(Biome.Category.FOREST).waterColor(4159204).waterFogColor(329011).surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.COARSE_DIRT.getDefaultState(), BlockInit.SANDSTONE.getDefaultState(), Blocks.STONE.getDefaultState())).parent(null));
+        Biome biome = new BiomeExtender(new Biome.Builder().precipitation(Biome.RainType.NONE).scale(0.07F).temperature(0.75F).depth(0.1F).downfall(0.4F).category(Biome.Category.FOREST).waterColor(4159204).waterFogColor(329011).surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.STONE.getDefaultState())).parent(null));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PHFFeatures.DUMMY.withConfiguration(new NoFeatureConfig()).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10000, 0.2F, 1))));
+        DefaultBiomeFeatures.addOres(biome);
+        DefaultBiomeFeatures.addCarvers(biome);
         return biome;
     }
 }
